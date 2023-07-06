@@ -1,15 +1,17 @@
 import mongoose from "mongoose";
 
-const TodoSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-  },
-  completed: {
-    type: Boolean,
-    required: true,
-  },
+const todoSchema = new mongoose.Schema({
+  description: String,
+  completed: Boolean,
 });
 
-const Todo = mongoose.model("Todo", TodoSchema);
-export default TodoSchema;
+todoSchema.statics.createTodo = async function (description) {
+  const todo = new this({
+    description,
+    completed: false,
+  });
+  return todo.save();
+};
+
+const Todo = mongoose.model("Todo", todoSchema);
+export default Todo;
