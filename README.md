@@ -43,5 +43,5 @@ Contributions to the Todo App Backend are welcome! If you have any suggestions, 
 
 ## Contact
 
-If you have any questions or need further assistance, please contact [@elizabet.bagdasaryan1@gmail.com]
+If you have any questions or need further assistance, please contact [elizabet.bagdasaryan1@gmail.com]
 
