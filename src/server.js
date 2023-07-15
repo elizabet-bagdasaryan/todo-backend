@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import connection from "./mongo.js";
 import cookieParser from "cookie-parser";
 
-import todosRoutes from "./routes/todos.js";
+import todosRoutes from "./routes/todoRoutes.js";
 
 const app = express();
 dotenv.config();

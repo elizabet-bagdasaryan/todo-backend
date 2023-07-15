@@ -38,7 +38,7 @@ export const createTodo = async (req, res) => {
 };
 
 export const deleteTodo = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params; // Use req.params instead of req.body
   try {
     const todo = await Todo.findById(id);
     if (!todo) {
