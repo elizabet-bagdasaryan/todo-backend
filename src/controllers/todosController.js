@@ -38,13 +38,13 @@ export const createTodo = async (req, res) => {
 };
 
 export const deleteTodo = async (req, res) => {
-  const { id } = req.params; // Use req.params instead of req.body
+  const { id } = req.params;
   try {
-    const todo = await Todo.findById(id);
+    const todo = await Todo.findByIdAndDelete(id);
     if (!todo) {
       return res.status(404).json({ msg: "Todo Not Found" });
     }
-    await todo.remove();
+
     res.status(200).json({ msg: "Todo Deleted Successfully", todo });
   } catch (error) {
     console.error(error.message);
