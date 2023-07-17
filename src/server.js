@@ -1,10 +1,9 @@
 import express from "express";
-// import bodyParser from "body-parser";
+import bodyParser from "body-parser";
 import dotenv from "dotenv";
-import connection from "./mongo.js";
-import cookieParser from "cookie-parser";
-
+import connection from "./config/mongo.js";
 import todosRoutes from "./routes/todoRoutes.js";
+import swaggerMiddleware from "./middlewares/swagger-middleware.js";
 
 const app = express();
 dotenv.config();
@@ -12,11 +11,9 @@ dotenv.config();
 connection();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
+app.use(bodyParser.json());
+app.use("/", ...swaggerMiddleware());
 
 app.use("/api/todos", todosRoutes);
 
-app.listen(3000, () => {
-  console.log("Server started on port 3000");
-});
+app.listen(process.env.PORT || 3000);

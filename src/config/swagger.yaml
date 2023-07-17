@@ -1,0 +1,35 @@
+openapi: 3.0.0
+info:
+  title: ToDo
+  description: API for ToDo App
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000/api/todos
+    description: local server
+
+paths:
+  /create:
+    post:
+      summary: Create a new ToDo item.
+      description: Adds a new ToDo item to the database. The request body should include a `todoTask` field with the text of the task and a `done` field with a boolean value indicating whether the task is completed or not.
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              todoTask:
+                type: string
+                example: "Buy groceries"
+              done:
+                type: boolean
+                example: false
+      responses:
+        201:
+          description: Created
