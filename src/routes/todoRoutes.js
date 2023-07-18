@@ -7,12 +7,12 @@ import {
 } from "../controllers/todosController.js";
 const router = express.Router();
 
-router.get("/:id", getTodo);
+router.get("/todos/:id", getTodo);
 
-router.get("/", getTodos);
+router.get("/todos", getTodos);
 
-router.post("/create", createTodo);
+router.post("/todos", createTodo);
 
-router.delete("/delete/:id", deleteTodo);
+router.delete("/todos/:id", deleteTodo);
 
 export default router;

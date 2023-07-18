@@ -14,6 +14,6 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use("/", ...swaggerMiddleware());
 
-app.use("/api/todos", todosRoutes);
+app.use("/api", todosRoutes);
 
 app.listen(process.env.PORT || 3000);
