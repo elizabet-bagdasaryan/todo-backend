@@ -29,9 +29,6 @@ paths:
               description:
                 type: string
                 example: "Finish the task"
-              completed:
-                type: boolean
-                example: false
       responses:
         201:
           description: Created

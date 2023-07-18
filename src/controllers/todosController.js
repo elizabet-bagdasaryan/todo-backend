@@ -28,7 +28,11 @@ export const getTodo = async (req, res) => {
 export const createTodo = async (req, res) => {
   const { description } = req.body;
   try {
-    const todo = await Todo.createTodo(description);
+    const todo = new Todo({
+      description,
+      completed: false,
+    });
+    await todo.save();
 
     res.status(200).json({ msg: "Todo Created Successfully", todo });
   } catch (error) {
