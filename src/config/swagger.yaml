@@ -13,22 +13,61 @@ servers:
 paths:
   /todos:
     post:
-      summary: Create a new ToDo item.
-      description: Adds a new ToDo item to the database. The request body should include a `description` field with the text of the task and a `completed` field with a boolean value indicating whether the task is completed or not.
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - in: body
-          name: body
-          required: true
-          schema:
-            type: object
-            properties:
-              description:
-                type: string
-                example: "Finish the task"
+      requestBody:
+        description: >-
+          Adds a new ToDo item to the database. The request body should include
+          a `description` field
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  example: Finish the task
       responses:
-        201:
-          description: Created
+        "200":
+          description: Todo Created Successfully
+    get:
+      responses:
+        "200":
+          description: ToDos found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "60f7ea20b5d7a23d4c3744b0"
+                    description:
+                      type: string
+                      description: The description of the ToDo item.
+                      example: Finish the task
+
+  /todos/{id}:
+    delete:
+      parameters:
+        - in: path
+          name: id
+          schema:
+            required: true
+            type: string
+            description: The ID of the ToDo item to delete.
+      responses:
+        "200":
+          description: Todo Deleted Successfully
+    get:
+      parameters:
+        - in: path
+          name: id
+          schema:
+            required: true
+            type: string
+            description: The ID of the ToDo item to get.
+      responses:
+        "200":
+          description: Todo found
