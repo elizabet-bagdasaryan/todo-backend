@@ -30,7 +30,6 @@ To set up the Todo App Backend on your local machine, please follow these instru
    - Create a `.env` file in the root directory of the backend.
    - Specify the following environment variables in the `.env` file:
      - `MONGODB_URI`: The connection URL for your MongoDB database.
-     - `JWT_SECRET`: A secret key for JWT token generation and verification.
 5. Run the application: `npm start`
 6. The backend should now be up and running on your local machine, listening on the specified port (default: 3000).
 
