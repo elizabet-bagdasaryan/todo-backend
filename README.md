@@ -33,11 +33,13 @@ To set up the Todo App Backend on your local machine, please follow these instru
 5. Run the application: `npm start`
 6. The backend should now be up and running on your local machine, listening on the specified port (default: 3000).
 
+## API Documentation
+
+For more detailed information about the API and the expected response format, please refer to the API documentation. This documentation provides details about the available endpoints, parameters, and response formats.
 
 ## Contributing
 
 Contributions to the Todo App Backend are welcome! If you have any suggestions, bug reports, or feature requests, please feel free to open an issue or submit a pull request. Make sure to follow the existing coding style and guidelines.
-
 
 
 ## Contact
